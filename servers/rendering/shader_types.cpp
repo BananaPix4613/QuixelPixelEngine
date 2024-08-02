@@ -109,7 +109,7 @@ ShaderTypes::ShaderTypes() {
 	shader_modes[RS::SHADER_SPATIAL].functions["vertex"].built_ins["VIEW_RIGHT"] = constt(ShaderLanguage::TYPE_INT);
 	shader_modes[RS::SHADER_SPATIAL].functions["vertex"].built_ins["EYE_OFFSET"] = constt(ShaderLanguage::TYPE_VEC3);
 
-	shader_modes[RS::SHADER_SPATIAL].functions["fragment"].built_ins["VERTEX"] = ShaderLanguage::TYPE_VEC3;
+	shader_modes[RS::SHADER_SPATIAL].functions["fragment"].built_ins["VERTEX"] = constt(ShaderLanguage::TYPE_VEC3);
 	shader_modes[RS::SHADER_SPATIAL].functions["fragment"].built_ins["FRAGCOORD"] = constt(ShaderLanguage::TYPE_VEC4);
 	shader_modes[RS::SHADER_SPATIAL].functions["fragment"].built_ins["FRONT_FACING"] = constt(ShaderLanguage::TYPE_BOOL);
 	shader_modes[RS::SHADER_SPATIAL].functions["fragment"].built_ins["NORMAL"] = ShaderLanguage::TYPE_VEC3;
@@ -203,14 +203,6 @@ ShaderTypes::ShaderTypes() {
 
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].can_discard = true;
 	shader_modes[RS::SHADER_SPATIAL].functions["light"].main_function = true;
-
-	// CUSTOM VARIABLES
-	// useful to distinguish types of light
-	// Directional Light: LIGHT_HAS_DIRECTION(true), LIGHT_HAS_RANGE(false)
-	// Omni Light: LIGHT_HAS_DIRECTION(false), LIGHT_HAS_RANGE(true)
-	// Spot Light: LIGHT_HAS_DIRECTION(true), LIGHT_HAS_RANGE(true)
-	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["LIGHT_HAS_DIRECTION"] = constt(ShaderLanguage::TYPE_BOOL);
-	shader_modes[RS::SHADER_SPATIAL].functions["light"].built_ins["LIGHT_HAS_RANGE"] = constt(ShaderLanguage::TYPE_BOOL);
 
 	// spatial render modes
 	{

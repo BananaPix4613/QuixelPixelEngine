@@ -645,14 +645,6 @@ void SceneShaderForwardClustered::init(const String p_defines) {
 		actions.renames["DIFFUSE_LIGHT"] = "diffuse_light";
 		actions.renames["SPECULAR_LIGHT"] = "specular_light";
 
-		// CUSTOM RENAMES
-		// add our new defines
-		actions.renames["LIGHT_HAS_DIRECTION"] = "light_has_direction";
-		actions.renames["LIGHT_HAS_RANGE"] = "light_has_range";
-
-		// when Godot compiles this file, it will replace name LIGHT_HAS_DIRECTION 
-		// by light_has_direction.
-
 		actions.usage_defines["NORMAL"] = "#define NORMAL_USED\n";
 		actions.usage_defines["TANGENT"] = "#define TANGENT_USED\n";
 		actions.usage_defines["BINORMAL"] = "@TANGENT";
@@ -696,12 +688,6 @@ void SceneShaderForwardClustered::init(const String p_defines) {
 		actions.usage_defines["IRRADIANCE"] = "#define CUSTOM_IRRADIANCE_USED\n";
 
 		actions.usage_defines["MODEL_MATRIX"] = "#define MODEL_MATRIX_USED\n";
-
-		// CUSTOM USAGE DEFINES
-		// we also can add defines for our new code to make sure, that
-		// shader will not run the code when our new builtins are not used
-		actions.usage_defines["LIGHT_HAS_DIRECTION"] = "#define LIGHT_SOURCE_INFO\n";
-		actions.usage_defines["LIGHT_HAS_RANGE"] = "#define LIGHT_SOURCE_INFO\n";
 
 		actions.render_mode_defines["skip_vertex_transform"] = "#define SKIP_TRANSFORM_USED\n";
 		actions.render_mode_defines["world_vertex_coords"] = "#define VERTEX_WORLD_COORDS_USED\n";

@@ -2000,13 +2000,6 @@ void fragment_shader(in SceneData scene_data) {
 			shadow = 1.0;
 #endif
 
-			// add same boolean variables as before
-#ifdef LIGHT_SOURCE_INFO
-			// lets set a boolean variable using the way we previously discussed
-			bool _light_has_direction = true;
-			bool _light_has_range = false;
-#endif
-
 			float size_A = sc_use_light_soft_shadows ? directional_lights.data[i].size : 0.0;
 
 			light_compute(normal, directional_lights.data[i].direction, normalize(view), size_A,
@@ -2034,9 +2027,6 @@ void fragment_shader(in SceneData scene_data) {
 #ifdef LIGHT_ANISOTROPY_USED
 					binormal,
 					tangent, anisotropy,
-#endif
-#ifdef LIGHT_SOURCE_INFO
-					_light_has_direction, _light_has_range,
 #endif
 					diffuse_light,
 					specular_light);
