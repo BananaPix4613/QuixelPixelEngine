@@ -645,6 +645,8 @@ void SceneShaderForwardClustered::init(const String p_defines) {
 		actions.renames["DIFFUSE_LIGHT"] = "diffuse_light";
 		actions.renames["SPECULAR_LIGHT"] = "specular_light";
 
+		actions.renames["LIGHT_INDEX"] = "light_index";
+
 		actions.usage_defines["NORMAL"] = "#define NORMAL_USED\n";
 		actions.usage_defines["TANGENT"] = "#define TANGENT_USED\n";
 		actions.usage_defines["BINORMAL"] = "@TANGENT";
@@ -688,6 +690,8 @@ void SceneShaderForwardClustered::init(const String p_defines) {
 		actions.usage_defines["IRRADIANCE"] = "#define CUSTOM_IRRADIANCE_USED\n";
 
 		actions.usage_defines["MODEL_MATRIX"] = "#define MODEL_MATRIX_USED\n";
+
+		actions.usage_defines["LIGHT_INDEX"] = "#define LIGHT_INDEX_USED\n";
 
 		actions.render_mode_defines["skip_vertex_transform"] = "#define SKIP_TRANSFORM_USED\n";
 		actions.render_mode_defines["world_vertex_coords"] = "#define VERTEX_WORLD_COORDS_USED\n";
